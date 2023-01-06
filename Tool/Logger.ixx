@@ -7,7 +7,7 @@ import <array>;
 using namespace std;
 
 namespace XrayN::Tool {
-	// Todo
+	// TODO: 日志文件管理器
 	export class Logger {
 		const static inline array SeverityStr{ "NONE", "FATAL", "ERROR", "WARNING", "INFO", "DEBUG", "VERBOSE" };
 
@@ -50,30 +50,28 @@ namespace XrayN::Tool {
 			verbose
 		};
 
-		ConsoleLogger(const Severity& maxSeverity = Severity::warning);
+		void static LogLine();
 
-		void LogLine();
+		void static LogN(const string& msg);
 
-		void LogN(const string& msg);
+		void static LogF(const string& msg);
 
-		void LogF(const string& msg);
+		void static LogE(const string& msg);
 
-		void LogE(const string& msg);
+		void static LogW(const string& msg);
 
-		void LogW(const string& msg);
+		void static LogI(const string& msg);
 
-		void LogI(const string& msg);
+		void static LogD(const string& msg);
 
-		void LogD(const string& msg);
-
-		void LogV(const string& msg);
+		void static LogV(const string& msg);
 
 	private:
 		const static inline array SeverityStr{ "NONE", "FATAL", "ERROR", "WARNING", "INFO", "DEBUG", "VERBOSE" };
 
-		size_t _maxSeverity;
+		int8_t static GetMaxLogLevel();
 
 	protected:
-		void _Log(const string& msg, const Severity& severity= Severity::warning);
+		void static  _Log(const string& msg, const Severity& severity = Severity::warning);
 	};
 }

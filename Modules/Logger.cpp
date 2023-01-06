@@ -1,21 +1,26 @@
+/// @brief 日志管理
+/// @brief 只完成了 Console
+
 module Logger;
 
 import <chrono>;
 import <format>;
 import <string>;
 import <iostream>;
-
 using namespace std;
 
+import Global;
+
 namespace XrayN::Tool {
-	ConsoleLogger::ConsoleLogger(const Severity& maxSeverity) {
-		_maxSeverity = static_cast<size_t>(maxSeverity);
+	int8_t XrayN::Tool::ConsoleLogger::GetMaxLogLevel()
+	{
+		return static_cast<int8_t>(XrayN::Global::MaxConsoleLogLevel);
 	}
 
 	void ConsoleLogger::_Log(const string& msg, const Severity& severity) {
-		size_t Tseverity{ static_cast<size_t>(severity) };
+		int8_t Tseverity{ static_cast<int8_t>(severity) };
 
-		if (Tseverity <= _maxSeverity) {
+		if (Tseverity <= GetMaxLogLevel()) {
 			cout << format("{} [{}]\t{}\n", chrono::system_clock::now(), SeverityStr[Tseverity], msg);
 		}
 	}

@@ -1,3 +1,6 @@
+/// @brief Base64 检查，编码，解码
+/// @brief 基本完成
+
 module Base64;
 
 import <string>;

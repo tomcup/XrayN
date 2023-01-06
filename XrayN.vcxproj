@@ -172,6 +172,7 @@
     <ClCompile Include="Mode\Config.ixx" />
     <ClCompile Include="Mode\ESysProxyType.ixx" />
     <ClCompile Include="Modules\Base64.cpp" />
+    <ClCompile Include="Modules\ConfigHandler.cpp" />
     <ClCompile Include="Modules\Logger.cpp" />
     <ClCompile Include="Modules\Utils.cpp" />
     <ClCompile Include="Tool\Base64.ixx" />

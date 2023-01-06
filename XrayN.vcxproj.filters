@@ -48,6 +48,9 @@
     <ClCompile Include="Modules\Utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Modules\ConfigHandler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

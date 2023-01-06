@@ -6,6 +6,7 @@ import <fstream>;
 using namespace std;
 
 import Global;
+import Config;
 
 namespace XrayN::Tool {
 	string XrayN::Tool::Utils::GetConfigPath()

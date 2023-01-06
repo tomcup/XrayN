@@ -1,11 +1,9 @@
-module;
-#include "nlohmann/json.hpp"
-#include "nlohmann/json_fwd.hpp"
-export module ConfigHandler;
+export module ConfigReaderHandler;
 
 import <string>;
 import <fstream>;
 import <iostream>;
+import <list>;
 using namespace std;
 
 import Global;
@@ -13,22 +11,15 @@ import Config;
 import Utils;
 
 namespace XrayN::Handler {
-	/// <summary>
-	/// 配置文件处理类
-	/// </summary>
-	export class ConfigHandler {
+	/// @brief parse the config file
+	export class ConfigReaderHandler {
 	public:
-		static bool LoadConfig(XrayN::Mode::Config& FileName) {
-			ifstream input(XrayN::Tool::Utils::GetConfigPath());
-			nlohmann::json config;
-			try {
-				input >> config;
-			}
-			catch (const exception& e) {
-				cerr << e.what() << endl;
-			}
-			input.close();
-			return true;
-		}
+		/// @brief load and parse the config
+		/// @param FileName 
+		/// @return is succeed
+		static bool LoadConfig(XrayN::Mode::Config& FileName);
+	private:
+		template<typename T>
+		static bool rightful(const T& value, const list<T>& optional);
 	};
 }

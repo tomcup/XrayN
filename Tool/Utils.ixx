@@ -5,12 +5,12 @@ import <fstream>;
 
 using namespace std;
 
+import Config;
+
 namespace XrayN::Tool {
 	export class Utils {
 	public:
 #pragma region ×ÊÔ´Json²Ù×÷
-		static ifstream LoadResource(const string& res);
-
 		static string GetConfigPath();
 #pragma endregion
 

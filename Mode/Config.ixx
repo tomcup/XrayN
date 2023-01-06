@@ -1,6 +1,8 @@
 export module Config;
 
 import <string>;
+import <vector>;
+import <utility>;
 using namespace std;
 
 import ESysProxyType;
@@ -11,79 +13,25 @@ namespace XrayN::Mode {
 	/// </summary>
 	export class Config {
 	public:
-#pragma region property
-		/// <summary>
-		/// 允许日志
-		/// </summary>
-		bool logEnabled;
-
-		/// <summary>
-		/// 日志等级
-		/// </summary>
+		string accessLogPath;
+		string errorLogPath;
 		string loglevel;
+		bool dnsLog{ false };
 
-		string indexId;
+		bool HandlerService{ false };
+		bool LoggerService{ false };
+		bool StatsService{ false };
 
-		/// <summary>
-		/// 允许Mux多路复用
-		/// </summary>
-		bool muxEnabled;
+		vector<pair<string, string>> hosts;
+		vector<string> serversHosts;
+		vector<pair<string, string>> ServerObjects;
+		string clientIp;
+		string queryStrategy;
+		bool disableCache{ false };
+		bool disableFallback{ false };
+		bool disableFallbackIfMatch{ false };
+	};
 
-		XrayN::Mode::ESysProxyType sysProxyType;
-
-		bool autoRun;
-
-		/// <summary>
-		/// 启用实时网速和流量统计
-		/// </summary>
-		bool enableStatistics;
-
-		/// <summary>
-		/// 去重时优先保留较旧（顶部）节点
-		/// </summary>
-		bool keepOlderDedupl;
-
-		/// <summary>
-		/// 视图刷新率
-		/// </summary>
-		unsigned short statisticsFreshRate;
-
-		/// <summary>
-		/// 自定义远程DNS
-		/// </summary>
-		string remoteDNS;
-
-		/// <summary>
-		/// Outbound Freedom domainStrategy
-		/// </summary>
-		string domainStrategy4Freedom;
-
-		/// <summary>
-		/// 是否允许不安全连接
-		/// </summary>
-		bool defAllowInsecure;
-
-		/// <summary>
-		/// 域名解析策略
-		/// </summary>
-		string domainStrategy;
-
-		string domainMatcher;
-		string routingIndexId;
-		bool enableRoutingAdvanced;
-		bool ignoreGeoUpdateCore;
-		string systemProxyExceptions;
-		string systemProxyAdvancedProtocol;
-		unsigned short autoUpdateInterval = 10;
-		unsigned short autoUpdateSubInterval = 10;
-		bool checkPreReleaseUpdate = false;
-		bool enableSecurityProtocolTls13;
-		unsigned short trayMenuServersLimit = 20;
-		bool autoHideStartup;
-#pragma endregion
-
-#pragma region other entities
-
-#pragma endregion nothing yet
+	export class DefaultConfig {
 	};
 }
